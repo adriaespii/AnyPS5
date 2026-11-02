@@ -11,6 +11,8 @@ Inventory prose retains historical counts; use the [generated progress report](h
 - [FastBitVector exports](../../../core/libs/prx/libSceNKWebKit/src/WtfFastBitVector.cpp) have no console ABI or behavior verification. The 16-byte owner (word pointer at 0, 64-bit bit count at 8), range clearing, growth and copying follow the paired header and [PS5 11.x WebKit source](https://github.com/neonmodder123/PS5-WebKit-11.x/blob/80f77e94c63ee7202eec3d4b5b1a021dd89011ba/Source/WTF/wtf/FastBitVector.cpp). `resizeSlow` preserves the stored bit count and unused bits of existing words; new words are zeroed. Allocation uses the module's `fastMalloc` and `fastFree`. Invalid ranges, null accessed storage, shrinking the word count and overflowing the upstream round-up throw instead of reproducing assertion failures or invalid memory access. Closes when: compared with a console module.
 
 ### Functional
+- [NavigationAction and NavigationResponse queries](../../../core/libs/prx/libSceNKWebKit/src/Navigation.cpp) (libSceNKWebKit) - WKNavigationActionShouldPerformDownload and WKNavigationResponseCanShowMIMEType query the download and MIME display flags from host objects.
+
 
 - [Constant-return exports](../../../core/libs/prx/libSceNKWebKit/src/ConstantExports.cpp) (libSceNKWebKit) - 137 exports answer with a fixed value in the PS5 11.00 module: 111 execute `xor eax,eax; ret`, 13 `mov eax,imm32; ret` and 13 `mov al,1; ret` (addresses and bodies from the 11.00 `libSceNKWebKit.sprx`, SHA-256 `3af992253665387feeb5df90ff27dff683e3aa270cc4d92a0535b46ab18fa20d`; NIDs recomputed from the declared names). The 124 EAX-writing bodies measure the 32-bit return; the 13 `mov al,1` bodies write only the low byte, so for them only AL is measured and the upper bits are unspecified. The declared prototypes stay the no-parameter `int` placeholders, so no other width, pointer or floating-point return is claimed. Only 11.00 was measured.
 
@@ -479,12 +481,10 @@ Inventory prose retains historical counts; use the [generated progress report](h
 | `WKKeyboardEventMake` | `UJXHm7AkPK8` |
 | `WKMessageListenerSendReply` | `9Rvb-lG-IYI` |
 | `WKMouseEventMake` | `4LPi8JtvxYQ` |
-| `WKNavigationActionShouldPerformDownload` | `dy5gXrUocbc` |
 | `WKNavigationDataCopyNavigationDestinationURL` | `VBpaH-iDg48` |
 | `WKNavigationDataCopyOriginalRequest` | `S-xPXI+4q9E` |
 | `WKNavigationDataCopyTitle` | `4zsaU7SmJeE` |
 | `WKNavigationDataCopyURL` | `Iz8WjECFHIY` |
-| `WKNavigationResponseCanShowMIMEType` | `zDNEy9hON-w` |
 | `WKNotificationCopyBody` | `mLDfb0Bl+A8` |
 | `WKNotificationCopyIconURL` | `WFLFSRXPRn0` |
 | `WKNotificationCopyLang` | `C0Zzwfz-3bw` |
