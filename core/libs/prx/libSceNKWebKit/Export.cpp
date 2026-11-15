@@ -11118,9 +11118,7 @@ int APS5_VABI WKPageGetSourceForFrame() {
     NotImplemented_nid_no_patch(__func__);
 }
 
-int APS5_VABI WKPageGetTextZoomFactor() {
-    NotImplemented_nid_no_patch(__func__);
-}
+
 
 int APS5_VABI WKPageGoBack() {
     NotImplemented_nid_no_patch(__func__);
@@ -11514,9 +11512,7 @@ int APS5_VABI WKPageSetSuppressScrollbarAnimations() {
     NotImplemented_nid_no_patch(__func__);
 }
 
-int APS5_VABI WKPageSetTextZoomFactor() {
-    NotImplemented_nid_no_patch(__func__);
-}
+
 
 int APS5_VABI WKPageSetUseFixedLayout() {
     NotImplemented_nid_no_patch(__func__);
