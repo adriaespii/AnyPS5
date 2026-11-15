@@ -11073,9 +11073,7 @@ int APS5_VABI WKPageGetPageLength() {
     NotImplemented_nid_no_patch(__func__);
 }
 
-int APS5_VABI WKPageGetPageZoomFactor() {
-    NotImplemented_nid_no_patch(__func__);
-}
+
 
 int APS5_VABI WKPageGetPaginationBehavesLikeColumns() {
     NotImplemented_nid_no_patch(__func__);
@@ -11470,9 +11468,7 @@ int APS5_VABI WKPageSetPageUIClient() {
     NotImplemented_nid_no_patch(__func__);
 }
 
-int APS5_VABI WKPageSetPageZoomFactor() {
-    NotImplemented_nid_no_patch(__func__);
-}
+
 
 int APS5_VABI WKPageSetPaginationBehavesLikeColumns() {
     NotImplemented_nid_no_patch(__func__);
