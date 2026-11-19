@@ -2621,10 +2621,12 @@ static void TestFormSubmissionListener() {
     Require(WKFormSubmissionListenerGetTypeID() == 54);
     auto listener = NKWebKit::Make<NKWebKit::FormSubmissionListener>();
     int callCount = 0;
-    listener->completionHandler = [&callCount]() {
-        callCount++;
-    };
     const void* ref = listener.Get();
+    listener->completionHandler = [&callCount, ref]() {
+        callCount++;
+        Require(callCount == 1);
+        WKFormSubmissionListenerContinue(ref);
+    };
     Require(!listener->continued);
     Require(callCount == 0);
 
